@@ -1,15 +1,18 @@
 {
-  "name": "mdpl",
-  "version": "1.0.0",
+  "name": "@int0h/mdpl",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "mdpl": "./mdpl.js",
+    "mdpl-build": "./mdpl-build.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^17.0.21"
   }
 }
