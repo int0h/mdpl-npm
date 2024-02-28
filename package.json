@@ -1,5 +1,8 @@
 {
   "name": "@int0h/mdpl",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
