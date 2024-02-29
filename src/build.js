@@ -5,6 +5,7 @@ const htmlPath = path.resolve(__dirname, './static/index.html');
 const remarkjsPath = path.resolve(__dirname, './static/remark.js');
 const cssPath = path.resolve(__dirname, './static/style.css');
 const mdPath = path.resolve(process.cwd(), process.argv[2]);
+const customStylePath = path.resolve(path.dirname(mdPath), 'style.css');
 
 function escapeHtml(unsafe) {
     return unsafe
@@ -25,9 +26,11 @@ function buildHtml() {
     const remarkjsCode = fs.readFileSync(remarkjsPath, 'utf-8');
     const cssCode = fs.readFileSync(cssPath, 'utf-8');
     const mdCode = fs.readFileSync(mdPath, 'utf-8');
+    const customCss = fs.existsSync(customStylePath) ? fs.readFileSync(customStylePath, 'utf-8') : '';
 
     const replaceMap = {
         style: `<style>${escapeHtml(cssCode)}</style>`,
+        custom_style: `<style>${escapeHtml(customCss)}</style>`,
         script: `<script>${escapeJsHtml(remarkjsCode)}</script>`,
         md: `<textarea id="source">${escapeHtml(mdCode)}</textarea>`,
     };
